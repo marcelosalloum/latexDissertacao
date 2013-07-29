@@ -1,0 +1,211 @@
+\documentclass{ufscThesis}
+
+%----------------------------------------------------------------------
+% Pacotes usados especificamente neste documento
+\usepackage{graphicx} % Possibilita o uso de figuras e gráficos
+\usepackage{color}    % Possibilita o uso de cores no documento
+\usepackage{listings}
+
+
+% ------ IDENTIFICADORES DO TRABALHO
+% Usados para preencher os elementos pré-textuais
+\instituicao[a]{Universidade Federal de Santa Catarina} % Opcional
+\departamento[a]{Departamento de Automação e Sistemas}
+\curso[o]{Programa de P\'os-Graduação em Engenharia de Automação e Sistemas}
+\documento[a]{Dissertação} % [o] para dissertação [a] para tese
+\titulo{Profundidade pelo Campo}
+%\subtitulo{Subtítulo (se houver)} % Opcional
+\autor{Marcelo Henrique Salloum dos Santos}
+\grau{Mestre em Controle e Automação}
+\local{Florianópolis} % Opcional (Florianópolis é o padrão)
+\data{04}{agosto}{2013}
+\orientador[Orientador]{Prof. Armando Albertazzi Gon\c calves J\'unior, Dr.}
+%\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
+\coordenador[Coordenador\\Universidade Federal de Santa Catarina]{Prof. ????, Dr. }
+
+\numerodemembrosnabanca{4} % Isso decide se haverá uma folha adicional
+\orientadornabanca{sim} % Se faz parte da banca definir como sim
+%\coorientadornabanca{sim} % Se faz parte da banca definir como sim
+\bancaMembroA{Primeiro membro\\Universidade ...} %Nome do presidente da banca
+\bancaMembroB{Segundo membro\\Universidade ...}      % Nome do membro da Banca
+\bancaMembroC{Terceiro membro\\Universidade ...}     % Nome do membro da Banca
+\bancaMembroD{Quarto membro\\Universidade ...}       % Nome do membro da Banca
+%\bancaMembroE{Quinto membro\\Universidade ...}       % Nome do membro da Banca
+%\bancaMembroF{Sexto membro\\Universidade ...}        % Nome do membro da Banca
+%\bancaMembroG{Sétimo membro\\Universidade ...}       % Nome do membro da Banca
+
+
+\dedicatoria{Este trabalho é dedicado aos meus colegas de classe e aos meus queridos pais.}
+
+\agradecimento{Inserir os agradecimentos aos colaboradores à execução do trabalho.}
+
+%\epigrafe{A maior recompensa para o trabalho do homem n\~ao \'e o que ele ganha com isso mas o que ele se torna com isso.}
+%{(John Ruskin, 1819 - 1900)}
+\epigrafe{Aprender \'e a \'unica coisa de que a mente nunca se cansa, nunca tem medo e nunca se arrepende.}
+{(Leonardo da Vinci, 1452 - 1519)}
+
+\textoResumo {O texto do resumo deve ser digitado, em um único bloco, sem espaço de parágrafo. O resumo deve ser significativo, composto de uma sequência de frases concisas, afirmativas e não de uma enumeração de tópicos. Não deve conter citações. Deve usar o verbo na voz passiva. Abaixo do resumo, deve-se informar as palavras-chave (palavras ou expressões significativas retiradas do texto) ou, termos retirados de thesaurus da área.}
+\palavrasChave {Palavra-chave 1. Palavra-chave 2.  Palavra-chave 3. }
+ 
+\textAbstract {Resumo traduzido para outros idiomas, neste caso, inglês. Segue o formato do resumo feito na língua vernácula. As palavras-chave traduzidas, versão em língua estrangeira, são colocadas abaixo do texto precedidas pela expressão ``Keywords'', separadas por ponto.}
+\keywords {Keyword 1. Keyword 2. Keyword 3.}
+
+
+\begin{document}
+
+\capa  
+\folhaderosto[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
+\folhaaprovacao
+\paginadedicatoria
+\paginaagradecimento
+\paginaepigrafe
+\paginaresumo
+\paginaabstract
+
+\listadefiguras % as listas dependem da necessidade do usuário
+\listadetabelas 
+\listadeabreviaturas
+\listadesimbolos
+\sumario
+
+
+%--------------------------------------------------------
+% ------ ELEMENTOS TEXTUAIS
+\chapter{Introdução}
+As orientações aqui apresentadas são baseadas em um conjunto de normas elaboradas pela ABNT. Além das normas técnicas a Biblioteca também elaborou  uma série de tutoriais e guias que estão disponíveis na sua Homepage. \url{http://portalbu.ufsc.br/normalizacao-de-trabalhos-2/}. 
+
+
+\chapter{DESENVOLVIMENTO}
+Aqui via o desenvolvimento, um novo capitulo 
+
+\section{Formatação do texto}
+
+No que diz respeito à estrutura do trabalho, o novo modelo para dissertações e teses adotado pela UFSC segue a NBR 14724 (2011). Porém, em relação à formatação, a UFSC adotou o tamanho A5, que corresponde à metade do A4. Por esta razão, foi necessário uma adequação no tamanho da fonte, espaçamento entrelinhas, margens, etc, conforme exposto no quadro abaixo.
+
+\subsection{Formatação do texto}
+O texto deve ser justificado, digitado em cor preta, podendo utilizar outras cores somente para as ilustrações. Utilizar papel branco. Os elementos pré-textuais devem iniciar no anverso da folha, com  exceção da ficha catalográfica. Os elementos textuais e pós-textuais devem ser digitados no anverso e verso das folhas, com espaçamento simples (1). 
+
+% ----- FIGURAS:
+A Figura \ref{fig:a} mostra o logo da BU
+\begin{figure}[!htb]
+   \centering
+   \caption{Logo da BU.}
+   \includegraphics[width=0.3\textwidth]{figuras/brasaoBU.jpg}
+     \label{fig:a}
+\end{figure}
+
+\subsubsection{As ilustrações}
+
+Independente do tipo de ilustração (quadro, desenho, figura, fotografia, mapa, entre outros) sua identificação aparece na parte superior, precedida da palavra designativa. 
+
+A indicação da fonte consultada deve aparecer na parte inferior, elemento obrigatório mesmo que seja produção do próprio autor. A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere~ \cite{Boney96}. 
+
+% ----- TABELAS:
+A Tabela \ref{tab:a} mostra mais informações do template BU.
+
+\begin{table}[!htb]
+\begin{center}
+ \caption{Formatação do texto. \label{tab:a}}
+  \begin{tabular}{ p{3cm} | p{6cm} }
+    \hline
+Cor & Branco\\ \hline
+Formato do papel & A5\\ \hline
+Gramatura & 75\\ \hline
+Impressão & Frente e verso\\ \hline
+Margens & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.\\ \hline
+Cabeçalho & 0,7\\ \hline
+Rodapé & 0,7\\ \hline
+Paginação & Externa\\ \hline
+Alinhamento vertical & Superior\\ \hline
+Alinhamento do texto & Justificado\\ \hline
+Fonte sugerida & Times New Roman \\ \hline
+Tamanho da fonte & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.\\ \hline
+Espaçamento entre linhas & Um (1) simples\\ \hline
+Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0\\ \hline
+Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
+  \end{tabular}
+ Fonte: Universidade Federal de Santa Catarina (2011)
+\end{center}
+\end{table}
+
+
+% ----- EQUACOES
+\subsubsection{Equações e fórmulas}
+
+As equações e fórmulas devem ser destacadas no texto para facilitar a leitura.  Para numerá-las, deve-se usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se usar uma entrelinha maior do que a usada no texto~\cite{abnt14724}.
+
+Exemplo: A equação \ref{eq:a}
+\begin{equation}
+ x^2 + y^2 = z^2
+ \label{eq:a}
+\end{equation}
+ e a equação  \ref{eq:b}
+\begin{equation}
+ x^2 + y^2 = n
+\label{eq:b}
+\end{equation}
+
+
+
+\subsection{Exemplo de como gerar a lista de símbolos e abreviaturas}
+Para gerar a lista de símbolos (como $\int$ e $\prod$) e abreviaturas (como ABNT e IBGE) use os comandos:
+
+% ----- ABREVIATURAS:
+\abreviatura{ABNT}{Associação Brasileira de Normas Técnicas}
+\abreviatura{IBGE}{Instituto Brasileiro de Geografia e Estatística}
+% ----- SIMBOLOS
+\simbolo{$\int$}{Integral}
+\simbolo{$\prod$}{Produtório}
+
+% ----- CODIGO ----- Usar lstlisting para insurer c—digos no documento
+\begin{lstlisting}
+#include <stdio.h>
+#define N 10
+/* Block
+ * comment */
+ 
+int main()
+{
+    int i;
+ 
+    // Line comment.
+    puts("Hello world!");
+ 
+    for (i = 0; i < N; i++)
+    {
+        puts("LaTeX is also great for programmers!");
+    }
+ 
+    return 0;
+}
+\end{lstlisting}
+
+% ----- todo ----- BIBLIOGRAFIA ESTA NA ORDEM ALFABETICA?
+\subsubsection{Exemplo de citações no \LaTeX}
+
+Segundo \cite{BU_formatoA5}... De acordo com \cite{abnt14724,Boney96,abnt6024} ...
+
+
+
+\chapter{CONCLUS\~AO}
+
+As conclusões devem responder às questões da pesquisa, em relação aos objetivos e hipóteses. Devem ser breves podendo apresentar recomendações e sugestões para trabalhos futuros. Conforme \cite{abnt6024}
+
+
+
+%--------------------------------------------------------
+% Elementos pós-textuais
+% ----- BIBLIOGRAFIA:
+\bibliography{bibliografia}
+
+% ----- Apendice e Anexo
+\apendice
+\chapter{Exemplificando um Apêndice}
+Texto do Apêndice aqui. 
+
+
+\anexo
+\chapter{Exemplificando um Anexo}
+Texto do anexo aqui.
+
+\end{document}

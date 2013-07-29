@@ -1,0 +1,43 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem{Boney96}
+\abntrefinfo{{ALVES, Maria Bernardete Martins; ARRUDA, Susana
+  Margareth}}{{ALVES, Maria Bernardete Martins; ARRUDA, Susana
+  Margareth}}{c2001}
+{{ALVES, Maria Bernardete Martins; ARRUDA, Susana Margareth}. \textbf{Como
+  fazer referências}: bibliográficas, eletrônicas e demais formas de documento.
+Florianópolis: Universidade Federal de Santa Catarina, Biblioteca
+  Universitária, c2001. Dispon{\'\i}vel em:
+  $<$http://www.bu.ufsc.br/design/framerefer.php$>$. Acesso em: 11 jun. 2013.}
+
+\bibitem{abnt14724}
+\abntrefinfo{{ZASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}}{{ZASSOCIAÇÃO
+  BRASILEIRA DE NORMAS TÉCNICAS}}{2011}
+{{ZASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}. \textbf{NBR 14724}: informação e
+  documentação: trabalhos acadêmicos: apresentação.
+Rio de Janeiro, 2011, 11~p.}
+
+\bibitem{BU_formatoA5}
+\abntrefinfo{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca
+  Universitária.}}{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca
+  Universitária.}}{2009}
+{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca Universitária.}
+  \textbf{Trabalho acadêmico}: guia fácil para diagramação: formato a5.
+Florianópolis, 2009. Dispon{\'\i}vel em:
+  $<$http://www.bu.ufsc.br/design/GuiaRapido2012.pdf$>$. Acesso em: 11 jun.
+  2013.}
+
+\bibitem{abnt6024}
+\abntrefinfo{{ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}}{{ASSOCIAÇÃO BRASILEIRA
+  DE NORMAS TÉCNICAS}}{2012}
+{{ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}. \textbf{NBR 6024}: informação e
+  documentação: numeração progressiva das seções de um documento escrito:
+  apresentação.
+Rio de Janeiro, 2012.}
+
+\end{thebibliography}
