@@ -31,7 +31,7 @@
 
 %---------------------------------------------------------------------------
 % Definicao da geometria da página
-\RequirePackage[a5paper,inner=2.5cm,outer=1.5cm,top=2.0cm,bottom=1.5cm,head=0.7cm,foot=0.7cm]{geometry}
+\RequirePackage[a5paper,inner=2.0cm,outer=2.0cm,top=2.0cm,bottom=1.5cm,head=0.7cm,foot=0.7cm]{geometry}
 % Se o cabecalho e o rodape estao dentro das margens, acrescentar as opcoes includehead e includefoot
 
 %---------------------------------------------------------------------------
@@ -834,8 +834,6 @@
 \end{espacosimples}
 
 
- {\setlength{\parindent}{0cm} \bfseries Banca Examinadora:\par}  
-
 \ABNTifnotempty{\ABNTorientadordata}
     {
     \ifthenelse{\equal{\orientadorbancadata}{nao}}
@@ -849,8 +847,6 @@
 	\end{espacosimples}
 	}{}
     }
-      
-    
 \ABNTifnotempty{\ABNTcoorientadordata}
     {
     \ifthenelse{\equal{\coorientadorbancadata}{nao}}
@@ -865,23 +861,32 @@
 	}{}
     }
 
+{\setlength{\parindent}{0cm} \bfseries Banca Examinadora:\par}
 
+\ABNTifnotempty{\bancanameA}
+    {
+    \begin{espacosimples}
+	\vspace{0.9em}
+	\begin{center}
+	{\rule{\ABNTsignwidth}{1pt}\par
+	 \bancaformat \bancanameA \\ \bancadataA\par}
+	\end{center}
+    \end{espacosimples}
+    }
 
-
-
-% \ABNTifnotempty{\ABNTorientadordata}
-%     {
-%     \ifthenelse{\equal{\orientadorbancadata}{sim}}
-% 	{
-% 	\begin{espacosimples}
-% 	    \vspace{0.5em}
-% 	    \begin{center}
-% 	    {\rule{\ABNTsignwidth}{1pt}\par
-% 	     \bancaformat \ABNTorientadorname \\ \ABNTorientadordata\par}
-% 	    \end{center}
-% 	\end{espacosimples}
-% 	}{}
-%     }
+\ABNTifnotempty{\ABNTorientadordata}
+    {
+    \ifthenelse{\equal{\orientadorbancadata}{sim}}
+	{
+	\begin{espacosimples}
+	    \vspace{0.5em}
+	    \begin{center}
+	    {\rule{\ABNTsignwidth}{1pt}\par
+	     \bancaformat \ABNTorientadorname \\ \ABNTorientadordata\par}
+	    \end{center}
+	\end{espacosimples}
+	}{}
+    }
 \ABNTifnotempty{\ABNTcoorientadordata}
     {
     \ifthenelse{\equal{\coorientadorbancadata}{sim}}
@@ -895,20 +900,7 @@
 	\end{espacosimples}
 	}{}
     }
-    
-\ifnum \nrobanca < 4
-    {
- \ABNTifnotempty{\bancanameA}
-    {
-    \begin{espacosimples}
-	\vspace{0.9em}
-	\begin{center}
-	{\rule{\ABNTsignwidth}{1pt}\par
-	 \bancaformat \bancanameA \\ \bancadataA\par}
-	\end{center}
-    \end{espacosimples}
-    }   
-    
+
 \ABNTifnotempty{\bancanameB}
     {
     \begin{espacosimples}
@@ -919,47 +911,22 @@
 	\end{center}
     \end{espacosimples}
     }
-    
- \ABNTifnotempty{\bancanameC}
-    {
-    \begin{espacosimples}
-	\vspace{0.5em}
-	\begin{center}
-	{\rule{\ABNTsignwidth}{1pt}\par
-	 \bancaformat \bancanameC \\ \bancadataC\par}
-	\end{center}
-    \end{espacosimples}
-    }   
-    }
 \vfill
 % Cria uma nova página de assinaturas
-%\ifnum \nrobanca > 4
-\else
+\ifnum \nrobanca > 4
     {
     \newpage
-   
-    \ABNTifnotempty{\bancanameA}
-    {
-    \begin{espacosimples}
-	\vspace{0.9em}
-	\begin{center}
-	{\rule{\ABNTsignwidth}{1pt}\par
-	 \bancaformat \bancanameA \\ \bancadataA\par}
-	\end{center}
-    \end{espacosimples}
-    }   
-    
-    \ABNTifnotempty{\bancanameB}
-    {
-    \begin{espacosimples}
-	\vspace{0.5em}
-	\begin{center}
-	{\rule{\ABNTsignwidth}{1pt}\par
-	 \bancaformat \bancanameB \\ \bancadataB\par}
-	\end{center}
-    \end{espacosimples}
-    }
-    
+    \if@openright\cleardoublepage\else\clearpage\fi%
+    \if@twocolumn
+	\@restonecoltrue\onecolumn
+    \else
+	\@restonecolfalse\newpage
+    \fi
+	\thispagestyle{empty}%
+    \vfill
+    %{\setlength{\parindent}{0cm} \bfseries Banca Examinadora (continua\c{c}\~ao):\par}
+    \mbox{}
+    \vspace{0.4em}
     \ABNTifnotempty{\bancanameC}
 	{
 	\begin{espacosimples}
@@ -1012,7 +979,7 @@
 	}
     \vfill
     }
-%\fi
+\fi
 %\if@restonecol\twocolumn \else \newpage \fi
 }% end of \aprovacao
 
