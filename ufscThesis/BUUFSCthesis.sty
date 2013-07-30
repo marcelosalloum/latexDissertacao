@@ -38,6 +38,28 @@
 %originalmente era este
 %\usepackage[alf,abnt-and-type=e, abnt-etal-cite=1, abnt-etal-list=0, abnt-year-extra-label=yes,abnt-url-package=url]{abntex2cite} % 
 
+% Quebra de linhas para \url:
+\makeatletter
+\g@addto@macro\UrlSpecials{\camelurl}
+\def\camelurl{%
+\count@`a
+\loop
+\mathcode\count@"8000
+\uccode`\~\count@\uppercase{\edef~{\mathchar\the\count@\noexpand\breakifupper}}%
+\ifnum\count@<`\z
+\advance\count@\@ne
+\repeat}
+
+\def\breakifupper#1{%
+\ifcat .\noexpand#1%
+\ifnum`#1>40
+\ifnum`#1<91
+\penalty\z@
+\fi\fi\fi
+#1%
+}
+
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
 % Variáveis identificadoras do trabalho
