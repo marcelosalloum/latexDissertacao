@@ -5,39 +5,23 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
-\bibitem{Boney96}
-\abntrefinfo{{ALVES, Maria Bernardete Martins; ARRUDA, Susana
-  Margareth}}{{ALVES, Maria Bernardete Martins; ARRUDA, Susana
-  Margareth}}{c2001}
-{{ALVES, Maria Bernardete Martins; ARRUDA, Susana Margareth}. \textbf{Como
-  fazer referências}: bibliográficas, eletrônicas e demais formas de documento.
-Florianópolis: Universidade Federal de Santa Catarina, Biblioteca
-  Universitária, c2001. Dispon{\'\i}vel em:
-  $<$http://www.bu.ufsc.br/design/framerefer.php$>$. Acesso em: 11 jun. 2013.}
+\bibitem{Gross87}
+\abntrefinfo{Grossman}{GROSSMAN}{1987}
+{GROSSMAN, P. Depth from focus.
+\textbf{Pattern Recognition Letters}, v.~5, p. 63--69, jan. 1987.}
 
-\bibitem{abnt14724}
-\abntrefinfo{{ZASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}}{{ZASSOCIAÇÃO
-  BRASILEIRA DE NORMAS TÉCNICAS}}{2011}
-{{ZASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}. \textbf{NBR 14724}: informação e
-  documentação: trabalhos acadêmicos: apresentação.
-Rio de Janeiro, 2011, 11~p.}
+\bibitem{Darrell88}
+\abntrefinfo{Darrell e Wohn}{DARRELL; WOHN}{1988}
+{DARRELL, T.; WOHN, K. Pyramid based depth from focus.
+\textbf{Proc. Computer Vision and Proc. Computer Vision and Pattern
+  Recognition}, p. 504--509, 1988.}
 
-\bibitem{BU_formatoA5}
-\abntrefinfo{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca
-  Universitária.}}{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca
-  Universitária.}}{2009}
-{{UNIVERSIDADE FEDERAL DE SANTA CATARINA. Biblioteca Universitária.}
-  \textbf{Trabalho acadêmico}: guia fácil para diagramação: formato a5.
-Florianópolis, 2009. Dispon{\'\i}vel em:
-  $<$http://www.bu.ufsc.br/design/GuiaRapido2012.pdf$>$. Acesso em: 11 jun.
-  2013.}
-
-\bibitem{abnt6024}
-\abntrefinfo{{ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}}{{ASSOCIAÇÃO BRASILEIRA
-  DE NORMAS TÉCNICAS}}{2012}
-{{ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS}. \textbf{NBR 6024}: informação e
-  documentação: numeração progressiva das seções de um documento escrito:
-  apresentação.
-Rio de Janeiro, 2012.}
+\bibitem{Oliveira06}
+\abntrefinfo{Oliveira}{OLIVEIRA}{2006}
+{OLIVEIRA, M. A.~F. de.
+\textbf{Correlacionamento Est{\'e}reo de Complexidade Linear Baseado em
+  Indexa{\c c}{\~a}o de Regi{\~o}es}.
+Disserta\c{c}\~{a}o (Mestrado) --- Universidade Federal de Santa Catarina, nov.
+  2006.}
 
 \end{thebibliography}

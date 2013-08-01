@@ -12,7 +12,7 @@
 \departamento[a]{Departamento de Automação e Sistemas}
 \curso[o]{Programa de P\'os-Graduação em Engenharia de Automação e Sistemas}
 \documento[a]{Dissertação} % [o] para dissertação [a] para tese
-\titulo{Profundidade pelo Campo}
+\titulo{T\'ecnicas de Vis\~ao Computacional para Obten\c{c}\~ao de Profundidade de Campo Infinita e Informa\c{c}\~oes Tridimensionais de Cenas}
 %\subtitulo{Subtítulo (se houver)} % Opcional
 \autor{Marcelo Henrique Salloum dos Santos}
 \grau{Mestre em Controle e Automação}
@@ -61,16 +61,27 @@
 \paginaresumo
 \paginaabstract
 
-\listadefiguras % as listas dependem da necessidade do usuário
-\listadetabelas 
-\listadeabreviaturas
-\listadesimbolos
+%\listadefiguras % as listas dependem da necessidade do usuário
+%\listadetabelas 
+%\listadeabreviaturas
+%\listadesimbolos
 \sumario
 
 
 %--------------------------------------------------------
 % ------ ELEMENTOS TEXTUAIS
-\chapter{Introdução}
+%\include{capitulos/1_introducao}
+\chapter{Introdu\c{c}\~ao}
+Mecanismos \'opticos, tais como o olho humano ou c\^ameras de v\'ideo, funcionam atrav\'es do mapeamento de uma cena tridimensional em um plano bidimensional, seja ele a retina do olho, um filme fotogr\'afico ou um receptor fotossens\'ivel.
+
+Um sistema de vis\~ao computacional percorre o caminho inverso, extraindo informa\c{c}\~oes --- geralmente tridimensionais --- a partir de imagens bidimensionais \cite{Gross87}. Para tal, \'e necess\'ario controlar determinadas vari\'aveis do sistema a fim de isolar um n\'umero menor de dados que ser\~ao utilizados para inferir algumas das dimens\~oes presentes na cena.
+
+Os m\'etodos tradicionais para aquisi\c{c}\~ao da profundidade incluem sonares e lasers, que possuem limita\c{c}\~ao na latitude de exposi\c{c}\~ao, e m\'etodos de processamento de imagens tais como a paralaxe e a vis\~ao est\'ereo, que s\~ao limitados em avaliar pequenas diferen\c{c}as de profundidade devido \`a ambiguidade de correspond\^encias \cite{Darrell88}, uma vez que a informa\c{c}\~ao percebida n\~ao \'e suficiente para que seja obtida uma solu\c{c}\~ao \'unica e exata para qualquer entrada \cite{Oliveira06}.
+
+Entretanto, informa\c{c}\~oes sobre a profundidade dos objetos de uma cena podem ser recuperadas atrav\'es de t\'ecnicas binoculares n\~ao intrusivas, sem que haja problemas de ambiguidade na correspond\^encia. Particularmente, a profundidade pode ser computada a partir do foco, analisando uma cena enquanto varia-se a configura\c{c}\~ao focal e determinando o foco correto para cada objeto da cena. Dada uma c\^amera com foco ajust\'avel existe uma correspond\^encia do tipo um-para-um entre a posi\c{c}\~ao da lente e a dist\^ancia ao plano de foco. Portanto, a configura\c{c}\~ao do foco determina a profundidade.
+
+
+\chapter{Objetivos?}
 As orientações aqui apresentadas são baseadas em um conjunto de normas elaboradas pela ABNT. Além das normas técnicas a Biblioteca também elaborou  uma série de tutoriais e guias que estão disponíveis na sua Homepage. \url{http://portalbu.ufsc.br/normalizacao-de-trabalhos-2/}. 
 
 
@@ -97,7 +108,7 @@ A Figura \ref{fig:a} mostra o logo da BU
 
 Independente do tipo de ilustração (quadro, desenho, figura, fotografia, mapa, entre outros) sua identificação aparece na parte superior, precedida da palavra designativa. 
 
-A indicação da fonte consultada deve aparecer na parte inferior, elemento obrigatório mesmo que seja produção do próprio autor. A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere~ \cite{Boney96}. 
+A indicação da fonte consultada deve aparecer na parte inferior, elemento obrigatório mesmo que seja produção do próprio autor. A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere~ %\cite{Boney96}. 
 
 % ----- TABELAS:
 A Tabela \ref{tab:a} mostra mais informações do template BU.
@@ -131,7 +142,7 @@ Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpa
 % ----- EQUACOES
 \subsubsection{Equações e fórmulas}
 
-As equações e fórmulas devem ser destacadas no texto para facilitar a leitura.  Para numerá-las, deve-se usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se usar uma entrelinha maior do que a usada no texto~\cite{abnt14724}.
+As equações e fórmulas devem ser destacadas no texto para facilitar a leitura.  Para numerá-las, deve-se usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se usar uma entrelinha maior do que a usada no texto~ %\cite{abnt14724}.
 
 Exemplo: A equação \ref{eq:a}
 \begin{equation}
@@ -182,20 +193,20 @@ int main()
 % ----- todo ----- BIBLIOGRAFIA ESTA NA ORDEM ALFABETICA?
 \subsubsection{Exemplo de citações no \LaTeX}
 
-Segundo \cite{BU_formatoA5}... De acordo com \cite{abnt14724,Boney96,abnt6024} ...
+Segundo ... De acordo com %\cite{abnt14724,Boney96,abnt6024} ...
 
 
 
 \chapter{CONCLUS\~AO}
 
-As conclusões devem responder às questões da pesquisa, em relação aos objetivos e hipóteses. Devem ser breves podendo apresentar recomendações e sugestões para trabalhos futuros. Conforme \cite{abnt6024}
+As conclusões devem responder às questões da pesquisa, em relação aos objetivos e hipóteses. Devem ser breves podendo apresentar recomendações e sugestões para trabalhos futuros. Conforme %\cite{abnt6024}
 
 
 
 %--------------------------------------------------------
 % Elementos pós-textuais
 % ----- BIBLIOGRAFIA:
-\bibliography{bibliografia}
+\bibliography{bibliografia/bibliografia}
 
 % ----- Apendice e Anexo
 \apendice
