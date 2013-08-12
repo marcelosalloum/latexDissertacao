@@ -53,13 +53,13 @@
 \begin{document}
 
 \capa  
-\folhaderosto[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
-\folhaaprovacao
-\paginadedicatoria
-\paginaagradecimento
-\paginaepigrafe
-\paginaresumo
-\paginaabstract
+%\folhaderosto[comficha] % Se nao quiser imprimir a ficha, é só não usar o parâmetro
+%\folhaaprovacao
+%\paginadedicatoria
+%\paginaagradecimento
+%\paginaepigrafe
+%\paginaresumo
+%\paginaabstract
 
 %\listadefiguras % as listas dependem da necessidade do usuário
 %\listadetabelas 
@@ -72,13 +72,76 @@
 % ------ ELEMENTOS TEXTUAIS
 %\include{capitulos/1_introducao}
 \chapter{Introdu\c{c}\~ao}
-Mecanismos \'opticos, tais como o olho humano ou c\^ameras de v\'ideo, funcionam atrav\'es do mapeamento de uma cena tridimensional em um plano bidimensional, seja ele a retina do olho, um filme fotogr\'afico ou um receptor fotossens\'ivel.
+Os mecanismos \'opticos, tais como o olho humano, c\^ameras de v\'ideo e fotogr\'aficas, funcionam atrav\'es do mapeamento de uma cena tridimensional para um plano bidimensional, seja ele a retina do olho, um filme fotogr\'afico ou um receptor fotossens\'ivel.
 
 Um sistema de vis\~ao computacional percorre o caminho inverso, extraindo informa\c{c}\~oes --- geralmente tridimensionais --- a partir de imagens bidimensionais \cite{Gross87}. Para tal, \'e necess\'ario controlar determinadas vari\'aveis do sistema a fim de isolar um n\'umero menor de dados que ser\~ao utilizados para inferir algumas das dimens\~oes presentes na cena.
 
 Os m\'etodos tradicionais para aquisi\c{c}\~ao da profundidade incluem sonares e lasers, que possuem limita\c{c}\~ao na latitude de exposi\c{c}\~ao, e m\'etodos de processamento de imagens tais como a paralaxe e a vis\~ao est\'ereo, que s\~ao limitados em avaliar pequenas diferen\c{c}as de profundidade devido \`a ambiguidade de correspond\^encias \cite{Darrell88}, uma vez que a informa\c{c}\~ao percebida n\~ao \'e suficiente para que seja obtida uma solu\c{c}\~ao \'unica e exata para qualquer entrada \cite{Oliveira06}.
 
-Entretanto, informa\c{c}\~oes sobre a profundidade dos objetos de uma cena podem ser recuperadas atrav\'es de t\'ecnicas binoculares n\~ao intrusivas, sem que haja problemas de ambiguidade na correspond\^encia. Particularmente, a profundidade pode ser computada a partir do foco, analisando uma cena enquanto varia-se a configura\c{c}\~ao focal e determinando o foco correto para cada objeto da cena. Dada uma c\^amera com foco ajust\'avel existe uma correspond\^encia do tipo um-para-um entre a posi\c{c}\~ao da lente e a dist\^ancia ao plano de foco. Portanto, a configura\c{c}\~ao do foco determina a profundidade.
+Entretanto, informa\c{c}\~oes sobre a profundidade dos objetos de uma cena podem ser recuperadas atrav\'es de t\'ecnicas monoculares n\~ao intrusivas, sem que haja problemas de ambiguidade na correspond\^encia. Particularmente, a profundidade pode ser computada a partir do foco, analisando uma cena enquanto varia-se a configura\c{c}\~ao focal e determinando o foco correto para cada objeto da cena. Dada uma c\^amera com foco ajust\'avel existe uma correspond\^encia do tipo um-para-um entre a posi\c{c}\~ao da lente e a dist\^ancia ao plano de foco. Portanto, a configura\c{c}\~ao do foco determina a profundidade \cite{Darrell88}.
+
+
+Existem alguns trabalhos que tentam avaliar a dist\^ancia entre o objeto e a c\^amera para componentes da cena bem focados {\color{red}v\'arios, ex: Jarvis, 1983}. Essa avalia\c{c}\~ao de dist\^ancia e qualidade do foco --- utilizada temb\'em em m\'etodos de foco autom\'atico em c\^ameras e celulares --- \'e parte fundamental do trabalho aqui apresentado a fim de inferir a profundidade pelo foco, referenciado na literatura inglesa como  {\it Depth From Focus} (DFF)\abreviatura{DFF}{Depth From Focus} ou \abreviatura{DFD}{{\it Depth From Defocus}}{\it Depth From Defocus} (DFD).
+
+{\color{red}...
+
+...
+
+...
+
+...}
+
+\chapter{A Profundidade Pelo Foco ({\it Depth From Focus})}
+Uma vez que a avalia\c{c}\~ao da profundidade atrav\'es do foco depende da nitidez da fotografia faz-se necess‡ria uma an‡lise de como a configura\c{c}\~ao de uma c\^amera interfere nesse par\^ametro (a nitidez) e como se faz para adquirir um grau de nitidez œtil para esse fim. Um exemplo de faixa de nitidez \'util \'e apresentada na Figura \ref{fig:bookDepthofField}. \'E poss\'ivel observar que apenas uma parte da cena est\'a n\'itida e que algumas regi\~oes est\~ao mais n\'itidas que outras.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figuras/bookDepthofField.jpg}
+	\caption{Exemplo de uma fotografia com faixa \'util de nitidez. Figura retirada de \cite{wikiDepth}}
+	\label{fig:bookDepthofField}
+\end{figure}
+
+Com o objetivo de adquirir uma boa faixa de nitidez, deve-se entender bem tr\^es fen\^omenos caracter\'isticos da f\'isica \'optica, s\~ao eles:
+\begin{itemize}
+	\item{dist\^ancia focal;}
+	\item{abertura;}
+	\item{e profundidade de campo.}
+\end{itemize}
+
+%http://en.wikipedia.org/wiki/Focal_length
+A dist\^ancia focal de um sistema \'optico \'e uma medida do quanto o sistema converge ou diverge a luz \cite{focalLength}. Pode-se afirmar que, juntamente com a abertura do diafragma, trata-se de uma das caracter\'isticas mais importantes de uma lente objetiva pois \'e a partir dela que os usu\'arios (fot\'ografos amadores ou profissionais) definem, por exemplo, a maior ou menor amplia\c{c}\~ao de uma imagem ou ainda escolhem o campo de vis\~ao em que deseja trabalhar.
+
+J\'a a profundidade de campo corresponde \`a faixa de dist\^ancias dentro da qual os objetos aparecem n\'itidos em uma fotografia. Quando a foto \'e registrada nem todos os pontos da cena ficam n’tidos, apenas aqueles compreendidos dentro da profundidade de campo --- ou seja, pr\'oximos do plano focal --- s\~ao vistos com nitidez. Regulagens diferentes da objetiva poderiam focar uma nova regi\~ao enquanto outras passariam a ficar menos n\'itidas.
+
+Esses fen\^omenos ser\~ao melhor explicados nos subitems posteriores, assim como suas influ\^encias no processo de focagem de uma cena.
+
+\section{Dist\^ancia Focal}
+A Distancia focal...
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figuras/exFocalLength.png}
+	\caption{Compara\c{c}\~ao entre diferentes dist\^ancias focais. Figura retirada de \cite{exFocLength}}
+	\label{fig:exFocalLength}
+\end{figure}
+
+Tchabablau...
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figuras/angulosFocalLength.png}
+	\caption{\^Angulo de vis\~ao associado \`a dist\^ancia focal. Figura retirada de \cite{exAnguloVisao}}
+	\label{fig:angulos}
+\end{figure}
+
+
+
+
+
+\section{Abertura}
+A Abertura...
+
+\section{Profundidade de Campo}
+A Profundidade de Campo...
 
 
 \chapter{Objetivos?}
