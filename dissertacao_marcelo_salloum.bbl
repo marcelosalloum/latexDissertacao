@@ -24,26 +24,29 @@
 Disserta\c{c}\~{a}o (Mestrado) --- Universidade Federal de Santa Catarina, nov.
   2006.}
 
-\bibitem{wikiDepth}
-\abntrefinfo{Wikipedia}{WIKIPEDIA}{2013a}
-{WIKIPEDIA. \textbf{Depth of Field}. 2013.
-Dispon{\'\i}vel em: $<$http://en.wikipedia.org/wiki/Depth\_of\_field$>$.}
-
 \bibitem{focalLength}
-\abntrefinfo{Wikipedia}{WIKIPEDIA}{2013b}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2013}
 {WIKIPEDIA. \textbf{Focal Length}. 2013.
 Dispon{\'\i}vel em: $<$http://en.wikipedia.org/wiki/Focal\_length$>$.}
 
-\bibitem{exFocLength}
-\abntrefinfo{Graf}{GRAF}{2013}
-{GRAF, A. \textbf{Lens Focal Length Explained}. 2013.
-Dispon{\'\i}vel em:
-  $<$http://www.digital-photography-student.com/lens-focal-length-explained/$>$.}
+\bibitem{optica}
+\abntrefinfo{Hecht}{HECHT}{2002}
+{HECHT, E. \textbf{{\'O}ptica}. 2. ed. [S.l.]: Addison Wesley Longman, 2002.}
 
-\bibitem{exAnguloVisao}
-\abntrefinfo{Vieira}{VIEIRA}{2010}
-{VIEIRA, R. \textbf{Lentes Objetivas}. 2010.
+\bibitem{wikiDepth}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2013}
+{WIKIPEDIA. \textbf{Depth of Field}. 2013.
+Dispon{\'\i}vel em: $<$http://en.wikipedia.org/wiki/Depth\_of\_field$>$.}
+
+\bibitem{circulo1}
+\abntrefinfo{Pereira}{PEREIRA}{}
+{PEREIRA, H. \textbf{C{\'\i}rculo de Confus{\~a}o}.
 Dispon{\'\i}vel em:
-  $<$http://rogeriocvieira.blogspot.com.br/2010/05/objective-lenses-lentes-objetivas.html$>$.}
+  $<$http://www.tudosobrefotografar.com/2011/01/circulo-de-confusao-parte-ii.html$>$.}
+
+\bibitem{smith07}
+\abntrefinfo{Smith}{SMITH}{2007}
+{SMITH, W. \textbf{Modern Optical Engineering}. 4th. ed. [S.l.]: McGraw-Hill
+  Professional, 2007.}
 
 \end{thebibliography}

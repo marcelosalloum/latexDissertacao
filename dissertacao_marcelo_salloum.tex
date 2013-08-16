@@ -5,6 +5,8 @@
 \usepackage{graphicx} % Possibilita o uso de figuras e gráficos
 \usepackage{color}    % Possibilita o uso de cores no documento
 \usepackage{listings}
+\usepackage{fixltx2e}
+
 
 % ------ IDENTIFICADORES DO TRABALHO
 % Usados para preencher os elementos pré-textuais
@@ -70,6 +72,8 @@
 
 %--------------------------------------------------------
 % ------ ELEMENTOS TEXTUAIS
+
+
 %\include{capitulos/1_introducao}
 \chapter{Introdu\c{c}\~ao}
 Os mecanismos \'opticos, tais como o olho humano, c\^ameras de v\'ideo e fotogr\'aficas, funcionam atrav\'es do mapeamento de uma cena tridimensional para um plano bidimensional, seja ele a retina do olho, um filme fotogr\'afico ou um receptor fotossens\'ivel.
@@ -91,14 +95,23 @@ Existem alguns trabalhos que tentam avaliar a dist\^ancia entre o objeto e a c\^
 
 ...}
 
-\chapter{A Profundidade Pelo Foco ({\it Depth From Focus})}
-Uma vez que a avalia\c{c}\~ao da profundidade atrav\'es do foco depende da nitidez da fotografia faz-se necess‡ria uma an‡lise de como a configura\c{c}\~ao de uma c\^amera interfere nesse par\^ametro (a nitidez) e como se faz para adquirir um grau de nitidez œtil para esse fim. Um exemplo de faixa de nitidez \'util \'e apresentada na Figura \ref{fig:bookDepthofField}. \'E poss\'ivel observar que apenas uma parte da cena est\'a n\'itida e que algumas regi\~oes est\~ao mais n\'itidas que outras.
+
+
+
+%\include{capitulos/2_profundidadePeloFoco}
+\chapter{Natureza e Caracter\'isticas do Foco }
+Uma vez que a avalia\c{c}\~ao da profundidade atrav\'es do foco depende da nitidez da fotografia faz-se necess\'aria uma an\'alise de como a configura\c{c}\~ao de uma c\^amera interfere nesse par\^ametro (a nitidez) e como se faz para adquirir um grau de nitidez interessante a esse fim. Neste cap\'itulo, estes pontos ser\~ao abordados a fim de estabelecermos como resolver o problema de {\bf profundidade pelo foco}.
+
+Um exemplo de faixa de nitidez \'util \'e apresentada na Figura \ref{fig:bookDepthofField}. \'E poss\'ivel observar que apenas uma parte da cena est\'a n\'itida e algumas regi\~oes est\~ao mais borradas que outras.
 \begin{figure}[!htb]
 	\centering
+	\caption{Exemplo de uma fotografia com faixa \'util de nitidez.}
 	\includegraphics[width=0.7\textwidth]{figuras/bookDepthofField.jpg}
-	\caption{Exemplo de uma fotografia com faixa \'util de nitidez. Figura retirada de \cite{wikiDepth}}
 	\label{fig:bookDepthofField}
+	
+	\small{Fonte: p\'agina {\it Depth of Field} da Wikipedia em ingl\^es\footnotemark}
 \end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://en.wikipedia.org/wiki/Depth_of_field}\textgreater. Acesso em ago. 2013.}
 
 Com o objetivo de adquirir uma boa faixa de nitidez, deve-se entender bem tr\^es fen\^omenos caracter\'isticos da f\'isica \'optica, s\~ao eles:
 \begin{itemize}
@@ -107,45 +120,209 @@ Com o objetivo de adquirir uma boa faixa de nitidez, deve-se entender bem tr\^es
 	\item{e profundidade de campo.}
 \end{itemize}
 
-%http://en.wikipedia.org/wiki/Focal_length
 A dist\^ancia focal de um sistema \'optico \'e uma medida do quanto o sistema converge ou diverge a luz \cite{focalLength}. Pode-se afirmar que, juntamente com a abertura do diafragma, trata-se de uma das caracter\'isticas mais importantes de uma lente objetiva pois \'e a partir dela que os usu\'arios (fot\'ografos amadores ou profissionais) definem, por exemplo, a maior ou menor amplia\c{c}\~ao de uma imagem ou ainda escolhem o campo de vis\~ao em que deseja trabalhar.
 
-J\'a a profundidade de campo corresponde \`a faixa de dist\^ancias dentro da qual os objetos aparecem n\'itidos em uma fotografia. Quando a foto \'e registrada nem todos os pontos da cena ficam n’tidos, apenas aqueles compreendidos dentro da profundidade de campo --- ou seja, pr\'oximos do plano focal --- s\~ao vistos com nitidez. Regulagens diferentes da objetiva poderiam focar uma nova regi\~ao enquanto outras passariam a ficar menos n\'itidas.
+J\'a a profundidade de campo corresponde \`a faixa de dist\^ancias dentro da qual os objetos aparecem n\'itidos em uma fotografia. Quando a foto \'e registrada nem todos os pontos da cena ficam n\'itidos, apenas aqueles compreendidos dentro da profundidade de campo --- ou seja, pr\'oximos do plano focal --- s\~ao vistos com nitidez. Regulagens diferentes da objetiva poderiam focar uma nova regi\~ao enquanto outras passariam a ficar menos n\'itidas.
 
 Esses fen\^omenos ser\~ao melhor explicados nos subitems posteriores, assim como suas influ\^encias no processo de focagem de uma cena.
 
+
+
+
 \section{Dist\^ancia Focal}
-A Distancia focal...
+A dist\^ancia focal \'e uma caracter\'istica f\'isica das lentes. Ela \'e matematicamente equivalente \`a metade do raio de curvatura da lente, ou seja, 
+\begin{equation}
+	f=R/2
+	\label{eq:foco}
+\end{equation}
 
+% TODO TRADUZIR ESTA FIGURA
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figuras/exFocalLength.png}
-	\caption{Compara\c{c}\~ao entre diferentes dist\^ancias focais. Figura retirada de \cite{exFocLength}}
+	\caption{Compara\c{c}\~ao entre diferentes dist\^ancias focais}
+	\includegraphics[width=0.8\textwidth]{figuras/exFocalLength.png}
 	\label{fig:exFocalLength}
+	
+	\small{Fonte: p\'agina {\it Focal Length} da Wikipedia em ingl\^es\footnotemark}
 \end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://en.wikipedia.org/wiki/Focal_length}\textgreater. Acesso em ago. 2013.}
 
-Tchabablau...
+Na pr\'atica ela \'e respons\'avel pela aproxima\c{c}\~ao da cena --- quanto maior o valor de f, maior ser\'a o {\it zoom} obtido --- e tamb\'em pelo \^angulo de abertura obtido, conforme podemos observar na seguinte figura: 
+
+A Figura \ref{fig:exFocalLength} mostra diversas fotografias obtidas a partir de uma mesma m\'aquina, na mesma posi\c{c}\~ao, variando apenas a dist\^ancia focal. Podemos assim verificar como esse par\^ametro influencia na aproxima\c{c}\~ao do sistema \'optico e no \^angulo obtido. J\'a a Figura \ref{fig:angulos} relaciona a \^angula\c{c}\~ao com o valor do foco.
 
 \begin{figure}[!htb]
 	\centering
+	\caption{\^Angulo de vis\~ao associado \`a dist\^ancia focal}
 	\includegraphics[width=1.0\textwidth]{figuras/angulosFocalLength.png}
-	\caption{\^Angulo de vis\~ao associado \`a dist\^ancia focal. Figura retirada de \cite{exAnguloVisao}}
 	\label{fig:angulos}
+	\small{Fonte: p\'agina {\it Digital Photograhy Student}\footnotemark}
+\end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://www.digital-photography-student.com/lens-focal-length- explained}\textgreater. Acesso em ago. 2013.}
+
+
+
+
+\subsection{Equa\c{c}\~oes Envolvidas}
+Uma caracter\'istica importante da dist\^ancia focal \'e que ela pode ser usada para calcular a dist\^ancia entre o sistema \'optico e o plano focal atrav\'es da {\bf F\'ormula de Gauss}, tamb\'em conhecida como equa\c{c}\~ao das lentes finas ou equa\c{c}\~ao das lentes delgadas \cite{optica}:
+\begin{equation}
+	\frac{1}{f} = \frac{1}{v} + \frac{1}{u}
+	\label{eq:lentesFinas}
+\end{equation}
+. Conforme ilustrado na Figura \ref{fig:lentesFinas}, as inc\'ognitas s\~ao descritas a seguir:
+\begin{itemize}
+	\item{{\bf u} representa a dist\^ancia entre as lentes e o objeto em que se deseja focar. Componentes muito distantes dessa posi\c{c}\~ao poder\~ao aparecer desfocados na fotografia. Isso ser\'a melhor explicado ao longo deste cap\'itulo;} 
+	\item{{\bf v} equivale \`a dist\^ancia das lentes at\'e a imagem projetada. No olho humano, essa \'e a dist\^ancia entre o cristalino e a retina. Numa m\'aquina fotogr\'afica, representa o intervalo entre as lentes e o sensor ou filme.}
+	\item{{\bf f} \'e a dist\^ancia focal, uma caracter\'istica da lente ou da configura\c{c}\~ao de lentes.}
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\caption{\`A esquerda temos a proje\c{c}\~ao geom\'etrica dos raios luminosos emitidos por um objeto real sobre uma lente delgada. \`A direita, observamos a Equa\c{c}\~ao de Gauss e algumas observa\c{c}\~oes sobre ela.}
+	\includegraphics[width=1.0\textwidth]{figuras/lentesFinas}
+	\label{fig:lentesFinas}
+	
+	\small{Fonte: elaborado pelo autor.}
 \end{figure}
 
+Segundo a teoria geral da \'optica geom\'etrica, essas tr\^es vari\'aveis dever\~ao ter valores positivos haja vista que o objeto e a imagem s\~ao reais e a lente \'e convergente. Pode-se observar que para um valor de {\bf f} constante \'e poss\'ivel controlar o valor de {\bf u} --- o objeto que se deseja focar e a lente --- apenas variando o intervalo {\bf v}.
+
+Apesar de existir uma rela\c{c}\~ao simples entre as tr\^es inc\'ognitas em quest\~ao, n\~ao \'e t\~ao f\'acil garantir se um ou outro elemento de da cena est\'a ou n\~ao a uma dist\^ancia {\bf u} das lentes. Para a Figura \ref{fig:bookDepthofField} parece claro que os pontos mais n\'itidos est\~ao aproximadamente a uma dist\^ancia {bf u} das lentes mas caso a figura toda estivesse n\'itida, seria dif\'icil identificar que partes da cena est\~ao sendo focalizadas. 
+
+Como garantir esse efeito a fim de adquirir uma configura\c{c}\~ao de foco proveitosa \'e um assunto que ser\'a discutido nas se\c{c}\~oes \ref{sec:abertura} e \ref{sec:profundidadeDeCampo}.
 
 
 
 
-\section{Abertura}
-A Abertura...
+\section{C\'irculos de Confus\~ao}
+\label{sec:abertura}
+
+Sabemos que, numa fotografia, um objeto que esteja pr\'oximo ao plano de foco produz uma imagem que converge exatamente sobre o sensor da c\^amera, conforme os raios luminosos da linha verde, Figura \ref{fig:circulos1}. Caso o objeto esteja distante do plano de foco, sua imagem poder\'a se formar antes ou depois do sensor, produzindo um fen\^omeno semelhente ao da miopia (linhas em vermelho) e da hipermetropia (linhas azuis), respectivamente. 
+
+A imagem \ref{fig:circulos2} representa a imagem fomada por um \\ unico ponto luminoso sobre um determinado anteparo. A primeira, a segunda e a terceira imagem se formam ap\'os, sobre e aqu\'em do plano, respectivamente. Podemos observar que quando o objeto n\~ao est\'a em perfeito foco, a imagem n\~ao se forma exatamente sobre o plano, mas um pouco distante, gerando um c\'irculo, ao inv\'es de um ponto sobre a superf\'icie receptora. Esse c\'irculo \'e o chamado {\bf c\'irculo de confus\~ao}.
+
+%TODO REVISAR ESTA FIGURA
+\begin{figure}
+	\centering
+	\caption{C\'irculos de confus\~ao.}
+
+		\subfigure[Proje\c{c}\~ao geom\'etrica e os c\'irculos de confus\~ao.]{
+			\includegraphics[width=0.55\textwidth]{figuras/circuloConfusao1}\label{fig:circulos1}}
+	\hfill
+		\subfigure[Imagem formada por pontos luminosos dentro e fora de foco.]{
+			\includegraphics[width=0.4\textwidth]{figuras/circuloConfusao2}\label{fig:circulos2}}
+	\small{Fonte: p\'agina Tudo Sobre Fotografar\footnotemark}
+\end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://www.tudosobrefotografar.com/2011/01/circulo-de-confusao-parte-ii.html}\textgreater. Acesso em ago. 2013.}
+
+
+Observando a imagem formada por um \'unico ponto luminoso nessas tr\^es posi\c{c}\~oes diferentes, fica evidente a raz\~ao de ser chamado assim o c\'irculo de confus\~ao. No caso de uma cena complexa esse efeito se evidencia, na pr\'atica, pela falta de nitidez observada sobre os objetos fora de foco, como no exemplo da Figura \ref{fig:bookDepthofField}.
+
+Uma caracter\'istica importante a respeito desse fen\^omeno \'e sua depend\^encia com a {\bf abertura}. Por defini\c{c}\~ao, esse termo se refere a qualquer coisa que restrinja o di\^ametro da trajet\'oria da luz que atravessa um plano num sistema \'optico. Pode ser a borda de uma lente (ou espelho), um anel ou qualquer elemento que, colocado deliberadamente na trajet\'oria \'optica, faz limitar a luz admitida pelo sistema e mantenha o elemento \'optico no s\'itio. 
+
+O efeito da abertura na forma\c{c}\~ao dos c\'irculos de confus\~ao \'e fazer com que os elementos cujas imagens se formam fora do plano receptor fiquem tanto menos n\'itidos quanto maior for a abertura, como pode ser observado na Figura \ref{fig:aberturaCirculos}.
+
+%TODO REVISAR FIGURA
+\begin{figure}[!htb]
+	\centering
+	\caption{Temos nesta figura duas fotografias de uma mesma cena em que se variou apenas a abertura das lentes. A maior abertura propiciou uma faixa de nitidez mais limitada. \`A direita, um esquema geom\'etrico de como os c\'irculos de confus\~ao s\~ao influenciados pela abertura.}
+	\includegraphics[width=1.0\textwidth]{figuras/aberturaCirculos.png}
+	\label{fig:aberturaCirculos}
+	\small{Fonte: figura elaborada pelo autor a partir de imagens da p\'agina {\it Depth of Field} da Wikipedia em ingl\^es\footnotemark.}
+\end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://en.wikipedia.org/wiki/Depth_of_field}\textgreater. Acesso em ago. 2013.}
+
+Existe um efeito que determina at\'e que ponto objetos que est\~ao mais ou menos perto do plano de foco aparentam estar n\'itidos, conhecido na literatura como {\bf profundidade de campo}, que ser\'a abordado na se\c{c}\~ao \ref{sec:profundidadeDeCampo}.
+
+
+
 
 \section{Profundidade de Campo}
-A Profundidade de Campo...
+\label{sec:profundidadeDeCampo}
+A profundidade de campo \'e tida, dentro da disciplina de \'optica, como a dist\^ancia entre o objeto mais pr\'oximo e o objeto mais distante de uma cena que apresentam nitidez aceit\'avel em uma imagem \cite{wikiDepth}. Embora as lentes possam focar em uma \'unica dist\^ancia de cada vez, a perda de nitidez \'e gradual para ambos os lados da dist\^ancia focal, de tal forma que dentro do intervalo da profundidade de campo, a desfocagem \'e praticamente impercept\'ivel.
+
+Em determinados casos pode ser desej\'avel uma imagem com todos os lementos n\'itidos, portanto um grande intervalo de nitidez. Em outras aplica\c{c}\~oes uma profundidade menor seria mais proveitosa \cite{wikiDepth}.
+
+A fim de estabelecer um olhar mais quantitativo e num\'erico sobre o par\^ametro em quest\~ao, deve-se primeiro observar a Figura \ref{fig:profundidadeCirculos}. 
+
+%TODO REVISAR FIGURA
+\begin{figure}[!htb]
+	\centering
+	\caption{Essa ilustra\c{c}\~ao se divide em duas partes. Na figura de baixo temos, em azul, um objeto sobre o plano de foco forma uma imagem exatamente sobre o plano receptor. Em vermelho, elementos muito distantes das lentes formam imagens aqu\'em do receptor. Em verde, elementos muito pr\'oximos das lentes formam sua imagem al\'em do sensor. Acima observa-se como cada um dos pontos luminosos sensibilizaria um sensor CCD.}	
+	\includegraphics[width=1.0\textwidth]{figuras/profundidadeCirculos.png}
+	\label{fig:profundidadeCirculos}
+	\small{Fonte: figura elaborada pelo autor com base em imagens da p\'aginas do Laborat\'orio {\it Electron Microbeam Analysis}\footnotemark, da Universidade de Michigan.}
+\end{figure}
+\footnotetext{Dispon\'ivel em: \textless \url{http://www.emal.engin.umich.edu/courses/sem_lecturecw/SEM_DepthofFocus.html}\textgreater. Acesso em ago. 2013.}
+
+Considere que exista um sistema \'optico tal que o plano de foco esteja a uma dist\^ancia {\bf u} [u.c.]\abreviatura{u.c.}{unidades de comprimento} (unidades de comprimento) e o sensor logalizado localizado a {\bf v} [u.c.] das lentes. Mantendo leia-se {\bf v} e {\bf f} constantes, existe uma posi\c{c}\~ao {\bf u\textsubscript{N}} entre o plano de foco e as lentes, cuja imagem converge para uma dist\^ancia {\bf v\textsubscript{F}} do lado oposto da lente e forma um circulo de confus\~ao com di\^ametro {\bf c} [u.c.] no anteparo. 
+
+De forma an\'aloga, h\'a uma posi\c{c}\~ao {\bf u\textsubscript{F}} \textgreater {\bf u} para a qual a imagem faz formar um c\'irculo de confus\~ao de di\^ametro {\bf c} [u.c.], por consequ\^encia de a imagem ser formada a uma dist\^ancia {\bf v\textsubscript{N}} \textless {\bf v}.
+
+Tendo em mente os conceitos apresentados, pode-se definir a profundidade de campo como a faixa de dist\^ancias compreendidas no intervalo [u\textsubscript{N}, u\textsubscript{F}] e que forma um c\'irculo de confus\~ao menor ou igual a {\bf c} [u.c.]. Essa medida depende de alguns fatores, como o tamanho do sensor, tamanho da impress\~ao final e n\'ivel de acuidade do observador \cite{circulo1}. Uma vez definido o tamanho m\'aximo dos c\'irculos, pode-se estabelecer uma rela\c{c}\~ao entre os par\^ametros apresentados atrav\'es de uma rela\c{c}\~ao de tri\^angulos (vide Figura \ref{fig:profundidadeCirculos}):
+
+\begin{equation}
+	\frac{v_N - v}{v_N} = \frac{c}{d}
+	\label{eq:a1}
+\end{equation}
+
+\begin{equation}
+	\frac{v - v_F}{v_F} = \frac{c}{d}
+	\label{eq:a2}
+\end{equation}
+
+Uma pr\'atica comum na \'optica \'e medir a abertura em termos de {\it f-number} ou {\bf n\'umero-f}. Esse termo estabelece uma rela\c{c}\~ao de proporcionalidade entre a dist\^ancia focal e a abertura. \'E uma medida quantitativa adimensional da velocidade de disparo, um importante conceito da fotografia \cite{smith07} e pode ser definido da seguinte maneira:
+
+\begin{equation}
+	N = \frac{f}{d}
+	\label{eq:a3}
+\end{equation}
+. Usando esta e a Equa\c{c}\~ao \ref{eq:lentesFinas}, podemos substituir os valores de {\bf d} e {\bf v} em \ref{eq:a1} e \ref{eq:a2} para obter uma rela\c{c}\~ao em termos de {\bf u} e {\bf N}, conforme as fun\c{c}\~oes seguintes:
+
+\begin{equation}
+	u_N = \frac{u{f^2}}{f^2 + Nc(u-f)}
+	\label{eq:a4}
+\end{equation}
+e 
+\begin{equation}
+	u_F = \frac{u{f^2}}{f^2 - Nc(u-f)}
+	\label{eq:a5}
+\end{equation}
+onde u\textsubscript{N} e u\textsubscript{F} representam, nessa ordem, a menor e maior dist\^ancias entre as lentes e um objeto em que se consegue nitidez aceit\'avel.
+
+O m\'odulo da profundidade de campo \'e frequentemente definido na literatura como DOF ({\it Depth of Field})\abreviatura{DOF}{\it Depth of Field}:
+\begin{equation}
+	DOF = u_F - u_N = \frac{2cN{f^2}u(u-f)}{f^4 - {c^2}{N^2}{(u-f)^2}}
+	\label{eq:a6}
+\end{equation}
+onde, se considerarmos {\bf (u-f) $\simeq$ u}, a equa\c{c}\~ao \ref{eq:a6} poderia ser representada da seguinte maneira:
+\begin{equation}
+	DOF = u_F - u_N = \frac{2cN{f^2}u^2}{f^4 - {c^2}{N^2}{u^2}}
+	\label{eq:a7}
+\end{equation}
+, embora o mais certo seja dizer que {\bf DOF $\in$ [u\textsubscript{N}, u\textsubscript{F}]}. Vale ressaltar que para {\bf u $\gg$ f}. Sendo assim, neste trabalho a profundidade de campo ser\'a definida como:
+\begin{equation}
+	DOF = [u_F, u_N] = \left[\frac{u{f^2}}{f^2 + Nc(u-f)} , \frac{u{f^2}}{f^2 - Nc(u-f)}\right]
+	\label{eq:a8}
+\end{equation}
+
+
+
+
+\chapter{Profundidade Pelo Foco (\it Depth from Focus)}
+A profundidade pelo foco \'e uma das t\'ecnicas monoculares de reconstru\c{c}\~ao 3D que n\~ao apresenta o problema de ambiguidade, descrito na introdu\c{c}\~ao desta disserta\c{c}\~ao. Isso porqu\^e atrav\'es da orofundidade pelo foco \'e poss\'ivel estabelecer uma rela\c{c}\~ao um-para-um das regioes mais nitidas da imagem com a dist\^ancia ao plano focal. 
+
+A dist\^ancia ao plano focal, por sua vez, poderia ser calculada atrav\'es das equa\c{c}\~oes apresentadas no Cap\'itulo ?? ou estimada atrav\'es de uma calibra\c{c}\~ao. 
+
+
+
 
 
 \chapter{Objetivos?}
 As orientações aqui apresentadas são baseadas em um conjunto de normas elaboradas pela ABNT. Além das normas técnicas a Biblioteca também elaborou  uma série de tutoriais e guias que estão disponíveis na sua Homepage. \url{http://portalbu.ufsc.br/normalizacao-de-trabalhos-2/}. 
+
+
+
 
 
 \chapter{DESENVOLVIMENTO}
